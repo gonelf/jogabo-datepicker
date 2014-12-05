@@ -1,0 +1,16 @@
+html {
+    background-color: #fff;
+    color: #000;
+    font-family: "Helvetica";
+}
+
+.selectedDay {
+	background-color: #BADA55;
+	border-radius: 50%; 
+	color: #FFF;
+}
+
+.unselectedDay {
+	background-color: #FFF;
+	color: #000;
+}
