@@ -101,24 +101,20 @@ function createCalendarMonthView(offset){
 
 	var currentMonth = Number(moment().format("M"));
 	var absOffset = Math.abs(offset);
-	var yearsOffset = Math.floor(absOffset/12);
 	var firstDay = 0;
 	var month = 0;
 	var year = 0;
+	var momentAdjusted;
 
 	if (offset < 0) {
-		month = Number(moment().subtract(absOffset, "months").format("M"))-1;
-		year = Number(moment().subtract(yearsOffset, "years").format("YYYY"));
-		if (currentMonth - absOffset < 0) {
-			year --;
-		};
+		momentAdjusted = moment().subtract(absOffset, "months");
+		month = Number(momentAdjusted.format("M"))-1;
+		year = Number(momentAdjusted.format("YYYY"));
 	}
 	else {
-		month = Number(moment().add(absOffset, "months").format("M"))-1;
-		year = Number(moment().add(yearsOffset, "years").format("YYYY"));
-		if (currentMonth + absOffset > 11) {
-			year ++;
-		};
+		momentAdjusted = moment().add(absOffset, "months");
+		month = Number(momentAdjusted.format("M"))-1;
+		year = Number(momentAdjusted.format("YYYY"));
 	}
 
 	var today = Number(moment([year, month]).format("D"));
